@@ -7,12 +7,11 @@ import os
 from load_data import load_all_data
 
 # ── Build database if it doesn't exist ────────────────────
-if not os.path.exists("budget.db"):
-    try:
-        load_all_data()
-    except Exception as e:
-        st.error(f"Failed to builf database: {e}")
-        st.stop()
+try:
+    load_all_data()
+except Exception as e:
+    st.error(f"Failed to builf database: {e}")
+    st.stop()
 
 # ── Page config ────────────────────────────────────────────
 st.set_page_config(page_title="Budget Dashboard", page_icon="💸", layout="wide")
