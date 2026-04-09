@@ -3,6 +3,12 @@ import sqlite3
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import os
+from load_data import load_all_data
+
+# ── Build database if it doesn't exist ────────────────────
+if not os.path.exists("budget.db"):
+    load_all_data()
 
 # ── Page config ────────────────────────────────────────────
 st.set_page_config(page_title="Budget Dashboard", page_icon="💸", layout="wide")
